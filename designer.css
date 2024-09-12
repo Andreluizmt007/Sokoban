@@ -18,22 +18,26 @@ main {
     display: block;
     min-width: 256px;
     min-height: 256px;
+    
     border: 8px solid #505050;
-    padding: 8px;
+    padding: 2px 3px;
     background-color: gray;
     border-radius: 8px;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.31);
 }
 
-.celula {
-    width: 64px;
-    height: 64px;
-    border: 0;
-    padding: 2px;
+.row {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    padding: 2px 0;
 }
 
-.row {
-    background-color: rgba(194, 191, 191, 0.616);
+.cell {
     height: 64px;
+    width: 64px;
     margin: 2px;
+
+    border-radius: 2px;
+    background-color: aliceblue;
 }
