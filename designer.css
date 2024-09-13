@@ -31,13 +31,19 @@ main {
     flex-direction: row;
     height: auto;
     padding: 2px 0;
+
 }
 
 .cell {
     height: 64px;
     width: 64px;
-    margin: 2px;
-
+    margin: 0 1px;
     border-radius: 2px;
     background-color: aliceblue;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.31);
+}
+
+.dir {
+    background-color: unset;
+    box-shadow: none;
 }
