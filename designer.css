@@ -15,9 +15,10 @@ main {
     justify-content: space-evenly;
     width: 100%;
     align-items: center;
+    flex-wrap: wrap;
 }
 
-.Tabuleiro {
+.board {
     display: block;
     min-width: 256px;
     min-height: 256px;
@@ -26,6 +27,7 @@ main {
     background-color: gray;
     border-radius: 8px;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.31);
+    margin: 24px;
 }
 
 .row {
@@ -46,6 +48,6 @@ main {
 }
 
 .dir {
-    background-color: unset;
+    background-color: black;
     box-shadow: none;
 }
