@@ -1,51 +1,40 @@
+window.addEventListener("keydown", function (event) {
+    const next = nextPosition(event.code);
+    
+    if(verifyPosition(next)) movePlayer(next);
+})
+
 function Player(x, y) {
     this.x = x;
     this.y = y;
-
-    console.log(Player);
 }
 
 const player = new Player(0, 0);
-
+const celulas = document.querySelectorAll('.cell');
 const element = document.querySelector('.player');
 
-// player.addEventListener("click", function () {
-//     alert("Clicou no jogador");
-// })
-
-window.addEventListener("keydown", function (event) {
-    nextPosition(event.code);
-
-})
-const celulas = document.querySelectorAll('.cell');
-console.log(celulas);
-
-
-
 function nextPosition(keycode) {
-    if (keycode == 'ArrowUp') {
-        player.x--;
-    }
-    if (keycode == 'ArrowDown') {
-        player.x++;
-    }
-    if (keycode == 'ArrowRight') {
-        player.y++;
-    }
-    if (keycode == 'ArrowLeft') {
-        player.y--;
-    }
-    console.log(keycode, player);
-
-    movePlayer();
+    let {x, y} = player;
+    if (keycode == 'ArrowUp') {x--;}
+    if (keycode == 'ArrowDown') {x++;}
+    if (keycode == 'ArrowRight') {y++;}
+    if (keycode == 'ArrowLeft') {y--;}
+    
+    return {x, y};
 }
 
-function movePlayer(x, y) {
-    const k = x * 8 + y;
+function movePlayer(position) {
+    let {x, y} = position;
+    player.x = position.x;
+    player.y = position.y;
+
+    const k = player.x * 8 + player.y;
 
     celulas[k].append(element);
 }
 
-function verifyPosition() {
+function verifyPosition(position) {
+    let {x, y} = position;
 
+    return x >= 0 && x < 8 && y >= 0 && y < 8;
 }
