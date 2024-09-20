@@ -5,7 +5,10 @@ const element = document.querySelector('.player');
 window.addEventListener("keydown", function (event) {
     const next = player.nextPosition(event.code);
 
-    if (verifyPosition(next)) player.movePlayer(next);
+    if (verifyPosition(next)) {
+        let k = next.x * 8 + next.y;
+        player.moveTo(next, element, celulas[k]);
+    }
 })
 
 function Player(x, y) {
@@ -21,14 +24,12 @@ function Player(x, y) {
 
         return { x, y };
     }
-    
-    this.movePlayer = function(position) {
+
+    this.moveTo = function(position, element, parent) {
         this.x = position.x;
         this.y = position.y;
 
-        const k = this.x * 8 + this.y;
-
-        celulas[k].append(element);
+        parent.append(element);
     }
 }
 
