@@ -19,6 +19,8 @@ main {
 }
 
 .board {
+    position: relative;
+    box-sizing: border-box;
     display: block;
     min-width: 256px;
     min-height: 256px;
@@ -38,7 +40,7 @@ main {
     display: flex;
     flex-direction: row;
     height: auto;
-    padding: 2px 0;
+    margin: 2px 0;
 }
 
 .cell {
@@ -51,6 +53,9 @@ main {
 }
 
 .player {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 63px;
     height: 63px;
     border-radius: 50%;
