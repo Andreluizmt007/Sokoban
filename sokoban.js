@@ -16,7 +16,7 @@ function Player(x, y) {
     this.y = y;
 
     this.nextPosition = function (keycode) {
-        let { x, y } = player;
+        let { x, y } = this;
         if (keycode == 'ArrowUp') { x--; }
         if (keycode == 'ArrowDown') { x++; }
         if (keycode == 'ArrowRight') { y++; }
