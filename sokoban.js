@@ -1,5 +1,4 @@
 const player = new Player(0, 0);
-const celulas = document.querySelectorAll('.cell');
 const element = document.querySelector('.player');
 
 const DIST_SALTO = 66;
@@ -12,8 +11,7 @@ window.addEventListener("keydown", function (event) {
     const next = player.nextPosition(event.code);
 
     if (verifyPosition(next)) {
-        let k = next.x * 8 + next.y;
-        player.moveTo(next, element, celulas[k]);
+        player.moveTo(next, element);
     }
 })
 
@@ -31,7 +29,7 @@ function Player(x, y) {
         return { x, y };
     }
 
-    this.moveTo = function(position, element, _parent) {
+    this.moveTo = function(position, element) {
         this.x = position.x;
         this.y = position.y;
 
