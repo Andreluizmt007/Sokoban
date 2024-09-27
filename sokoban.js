@@ -12,12 +12,9 @@ const board = document.querySelector('.board');
 const element = createBoardPiece(player, 'player');
 
 function createBoardPiece(piece, className) {
-    const element = createGameElement('div', className, board);
+    piece.insertElementInto(className, board);
 
-    element.style.top = calculaPosicao(piece.x);
-    element.style.left = calculaPosicao(piece.y);
-
-    return element;
+    return piece.element;
 }
 
 
