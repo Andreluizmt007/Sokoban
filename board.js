@@ -1,3 +1,15 @@
+const boardMap = [
+    [ "#", "#", "#", "#", "#", "#", "#", "#" ],
+    [ "#", ".", ".", ".", ".", ".", ".", "#" ],
+    [ "#", ".", ".", ".", "#", ".", ".", "#" ],
+    [ "#", ".", "#", "G", ".", ".", ".", "#" ],
+    [ "#", ".", ".", "G", "B", "#", ".", "#" ],
+    [ "#", ".", ".", "#", ".", "B", ".", "#" ],
+    [ "#", ".", ".", "P", ".", ".", ".", "#" ],
+    [ "#", "#", "#", "#", "#", "#", "#", "#" ]
+];
+
+
 function buildGameBoard(numberOfRows, numberOfCollumns) {
     const game = document.getElementById("game");
     const board = createGameElement('div', 'board', game);
