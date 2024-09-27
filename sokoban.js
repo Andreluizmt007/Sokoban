@@ -1,11 +1,29 @@
-const player = new Player(0, 0);
-const element = document.querySelector('.player');
+const boardMap = [
+    [ "#", "#", "#", "#", "#", "#", "#", "#" ],
+    [ "#", ".", ".", ".", ".", ".", ".", "#" ],
+    [ "#", ".", ".", ".", "#", ".", ".", "#" ],
+    [ "#", ".", "#", "G", ".", ".", ".", "#" ],
+    [ "#", ".", ".", "G", "B", "#", ".", "#" ],
+    [ "#", ".", ".", "#", ".", "B", ".", "#" ],
+    [ "#", ".", ".", "P", ".", ".", ".", "#" ],
+    [ "#", "#", "#", "#", "#", "#", "#", "#" ]
+];
+
+const NUM_ROWS = boardMap.length;
+const NUM_COLS = boardMap[0].length;
 
 const DIST_SALTO = 66;
 const MARGIN_FIX = 4;
 
-element.style.top = calculaPosicao(0);
-element.style.left = calculaPosicao(0);
+const pieces = buildGameBoard(NUM_ROWS, NUM_COLS);
+
+const player = new Player(pieces.player.x, pieces.player.y);
+
+const board = document.querySelector('.board');
+const element = createGameElement('div', 'caixao', board);
+
+element.style.top = calculaPosicao(player.x);
+element.style.left = calculaPosicao(player.y);
 
 window.addEventListener("keydown", function (event) {
     const next = player.nextPosition(event.code);
@@ -29,7 +47,7 @@ function Player(x, y) {
         return { x, y };
     }
 
-    this.moveTo = function(position, element) {
+    this.moveTo = function (position, element) {
         this.x = position.x;
         this.y = position.y;
 
@@ -41,16 +59,18 @@ function Player(x, y) {
 function verifyPosition(position) {
     let { x, y } = position;
 
-    return x >= 0 && x < 8 && y >= 0 && y < 8;
+    return boardMap[x][y] !== '#';
 }
 
 function calculaPosicao(qtd) {
 
-    return  (qtd * DIST_SALTO + MARGIN_FIX + "px");
+    return (qtd * DIST_SALTO + MARGIN_FIX + "px");
 }
 
-console.log(calculaPosicao(0, 64) === "0px");
-console.log(calculaPosicao(1, 64) === "64px");
-console.log(calculaPosicao(2, 32) === "64px");
-console.log(calculaPosicao(10, 60) === "600px");
-console.log(calculaPosicao(-3, 45) === "-135px");
+function createGameElement(elementName, className, parentNode) {
+    const element = document.createElement(elementName);
+    element.classList.add(className);
+    parentNode.append(element);
+
+    return element;
+}
