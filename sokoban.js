@@ -22,7 +22,7 @@ window.addEventListener("keydown", function (event) {
     const next = player.nextPosition(event.code);
 
     if (verifyPosition(next)) {
-        player.moveTo(next, element);
+        player.moveTo(next);
     }
 })
 
