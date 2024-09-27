@@ -6,7 +6,7 @@ const MARGIN_FIX = 4;
 
 const pieces = buildGameBoard(NUM_ROWS, NUM_COLS);
 
-const player = new Player(pieces.player.x, pieces.player.y);
+const player = new Piece(pieces.player.x, pieces.player.y);
 
 const board = document.querySelector('.board');
 const element = createGameElement('div', 'caixao', board);
@@ -22,7 +22,7 @@ window.addEventListener("keydown", function (event) {
     }
 })
 
-function Player(x, y) {
+function Piece(x, y) {
     this.x = x;
     this.y = y;
 
