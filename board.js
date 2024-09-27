@@ -18,3 +18,11 @@ function buildGameBoard(numberOfRows, numberOfCollumns) {
     } 
     return pieces;
 }
+
+function createGameElement(elementName, className, parentNode) {
+    const element = document.createElement(elementName);
+    element.classList.add(className);
+    parentNode.append(element);
+
+    return element;
+}
