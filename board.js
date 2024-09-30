@@ -19,7 +19,7 @@ export function buildGameBoard() {
     const pieces = {
         boxes: []
     };
-    
+
     for (let y = 0; y < NUM_ROWS; y++) {
         const row = createGameElement('div', 'row', board);
         
