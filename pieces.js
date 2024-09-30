@@ -1,3 +1,5 @@
+import { createGameElement } from "./board.js";
+
 const DIST_SALTO = 66;
 const MARGIN_FIX = 4;
 
@@ -38,3 +40,5 @@ function Piece(x, y) {
         return (qtd * DIST_SALTO + MARGIN_FIX + "px");
     }
 }
+
+export default Piece;
