@@ -20,17 +20,18 @@ export function buildGameBoard() {
         boxes: []
     };
     
-    for (let x = 0; x < NUM_ROWS; x++) {
+    for (let y = 0; y < NUM_ROWS; y++) {
         const row = createGameElement('div', 'row', board);
         
-        for (let y = 0; y < NUM_COLS; y++) {
+        for (let x = 0; x < NUM_COLS; x++) {
             const cell = createGameElement('div', 'cell', row);
-            const char =  boardMap[x][y];
+            const char =  boardMap[y][x];
+            const position = {y: y, x: x};
 
             if(char === '#')cell.classList.add('wall');
             if(char === 'G')cell.classList.add('goal');
-            if(char === 'P')pieces.player = {x: x, y: y};
-            if(char === 'B')pieces.boxes.push({x: x, y: y});
+            if(char === 'P')pieces.player = position;
+            if(char === 'B')pieces.boxes.push(position);
         }
     } 
     return pieces;

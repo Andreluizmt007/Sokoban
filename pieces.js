@@ -3,23 +3,23 @@ import { createGameElement } from "./board.js";
 const DIST_SALTO = 66;
 const MARGIN_FIX = 4;
 
-function Piece(x, y) {
-    this.x = x;
+function Piece(y, x) {
     this.y = y;
+    this.x = x;
 
     this.nextPosition = function (keycode) {
-        let { x, y } = this;
-        if (keycode == 'ArrowUp') { x--; }
-        if (keycode == 'ArrowDown') { x++; }
-        if (keycode == 'ArrowRight') { y++; }
-        if (keycode == 'ArrowLeft') { y--; }
+        let { y, x } = this;
+        if (keycode == 'ArrowUp') { y--; }
+        if (keycode == 'ArrowDown') { y++; }
+        if (keycode == 'ArrowRight') { x++; }
+        if (keycode == 'ArrowLeft') { x--; }
 
-        return { x, y };
+        return { y, x };
     }
 
     this.moveTo = function (position) {
-        this.x = position.x;
         this.y = position.y;
+        this.x = position.x;
 
         this.updateElementPosition();
     }
@@ -31,8 +31,8 @@ function Piece(x, y) {
     }
 
     this.updateElementPosition = function () {
-        this.element.style.top = calculaPosicao(this.x);
-        this.element.style.left = calculaPosicao(this.y);
+        this.element.style.top = calculaPosicao(this.y);
+        this.element.style.left = calculaPosicao(this.x);
     }
 
     function calculaPosicao(qtd) {

@@ -8,7 +8,7 @@ const board = document.querySelector('.board');
 const player = createBoardPiece(pieces.player, 'player');
 
 function createBoardPiece(piecePosition, className) {
-    const piece = new Piece(piecePosition.x, piecePosition.y);
+    const piece = new Piece(piecePosition.y, piecePosition.x);
     piece.insertElementInto(className, board);
 
     return piece;
@@ -23,7 +23,7 @@ window.addEventListener("keydown", function (event) {
 })
 
 function verifyPosition(position) {
-    let { x, y } = position;
+    let { y, x } = position;
 
-    return boardMap[x][y] !== '#';
+    return boardMap[y][x] !== '#';
 }
