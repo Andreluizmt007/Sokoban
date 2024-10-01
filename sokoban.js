@@ -20,7 +20,18 @@ for (let i = 0; i < pieces.boxes.length; i++) {
     boxes.push(piece);
 }
 
-    createBoardPiece(pieces.boxes[i], 'caixao');
+window.addEventListener("keydown", function (event) {
+    // event.preventDefault();
+
+    handlePieceMovement(event.code);
+});
+
+/** Tarefa #1: implementar função para localizar uma caixa à partir de um
+ * uma dada coordenada.
+*/
+function findBoxAtPosition(position) {
+    // modificar linha(s) de código abaixo
+    return boxes.find((box) => box.y == position.y && box.x == position.x);
 }
 
 window.addEventListener("keydown", function (event) {
