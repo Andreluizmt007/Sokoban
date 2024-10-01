@@ -5,7 +5,8 @@ import { boardMap } from "./board.js";
 const pieces = buildGameBoard();
 const board = document.querySelector('.board');
 
-const playerPiece = createBoardPiece(pieces.player, 'player');
+const player = createBoardPiece(pieces.player, 'player');
+const boxes = [];
 
 function createBoardPiece(piecePosition, className) {
     const piece = new Piece(piecePosition.y, piecePosition.x);
@@ -15,6 +16,9 @@ function createBoardPiece(piecePosition, className) {
 }
 
 for (let i = 0; i < pieces.boxes.length; i++) {
+    let piece = createBoardPiece(pieces.boxes[i], 'caixao');
+    boxes.push(piece);
+}
 
     createBoardPiece(pieces.boxes[i], 'caixao');
 }
