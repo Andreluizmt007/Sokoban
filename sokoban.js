@@ -34,6 +34,10 @@ function findBoxAtPosition(position) {
     return boxes.find((box) => box.y == position.y && box.x == position.x);
 }
 
+function leveantaAPlaquinha() {
+    alert("Congratulations!");
+}
+
 /** Tarefa #2: modificar a função abaixo de forma a tratar tando a movimentação
  * do jogador quanto das caixas.
 */
@@ -42,7 +46,7 @@ function handlePieceMovement(keycode) {
     const next = player.nextPosition(keycode);
     // (Modificar) Variável para detectar a "presença" de outra peça
     const foundBox = findBoxAtPosition(next);
-    
+
     // Implementar lógica caso encontre uma outra peça no caminho.
     if (foundBox) {
         const nextPosBox = foundBox.nextPosition(keycode);
@@ -52,8 +56,13 @@ function handlePieceMovement(keycode) {
         if (boxCanMove && !foundBox2) {
             foundBox.moveTo(nextPosBox);
             player.moveTo(next);
+
+            const caixasCertas = contagemDeCaixasCorretas();
+
+            if (caixasCertas == 3) {
+                setTimeout(leveantaAPlaquinha, 500);
+            }
         }
-        console.log(boxCanMove)
     }
     // E caso não encontre outra peça...
     else {
@@ -70,4 +79,15 @@ function verifyPosition(position) {
     let { y, x } = position;
 
     return boardMap[y][x] !== '#';
+}
+
+function contagemDeCaixasCorretas() {
+    let count = 0;
+
+    for (let i = 0; i < boxes.length; i++) {
+        let { y, x } = boxes[i];
+
+        if (boardMap[y][x] == 'G') count++;
+    }
+    return count;
 }
