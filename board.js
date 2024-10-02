@@ -19,6 +19,7 @@ export function buildGameBoard() {
     const pieces = {
         boxes: []
     };
+    let numberOfGoals = 0;
 
     for (let y = 0; y < NUM_ROWS; y++) {
         const row = createGameElement('div', 'row', board);
@@ -29,12 +30,15 @@ export function buildGameBoard() {
             const position = {y: y, x: x};
 
             if(char === '#')cell.classList.add('wall');
-            if(char === 'G')cell.classList.add('goal');
+            if(char === 'G') { 
+                cell.classList.add('goal')
+                numberOfGoals++;
+            };
             if(char === 'P')pieces.player = position;
             if(char === 'B')pieces.boxes.push(position);
         }
     } 
-    return pieces;
+    return { pieces, numberOfGoals};
 }
 
 export function createGameElement(elementName, className, parentNode) {
