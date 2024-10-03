@@ -1,0 +1,56 @@
+body {
+    height: 100vh;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+}
+
+#game {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.board {
+    display: block;
+    min-width: min(3vh, 2vw);
+    min-height: min(3vh, 2vw);
+    border: 8px solid hsla(208, 7%, 55%, 1);
+    padding: 2px 3px;
+    border-radius: 8px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.31);
+    margin: 24px;
+    background: hsla(351, 100%, 25%, 1);
+    background: linear-gradient(90deg, hsla(351, 100%, 25%, 1) 0%, hsla(9, 59%, 7%, 1) 100%);
+    background: -moz-linear-gradient(90deg, hsla(351, 100%, 25%, 1) 0%, hsla(9, 59%, 7%, 1) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(351, 100%, 25%, 1) 0%, hsla(9, 59%, 7%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#7F0012", endColorstr="#1B0A07", GradientType=1);
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    padding: 2px 0;
+}
+
+.cell {
+    height: min(5vw, 5vh);
+    width: min(5vw, 5vh);
+    margin: 0 1px;
+    border-radius: 2px;
+    background-color: aliceblue;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.31);
+}
+
+.dir {
+    box-shadow: none;
+    background-color: unset;
+}
