@@ -1,26 +1,5 @@
-
-function string2BoardMap(level) {
-    const lines = level.trim().split('\n');
-    console.log(lines);
-    return lines;
-}
-
-
-// export const boardMap = [
-//     [" ", " ", "#", "#", "#", "#", "#"],
-//     ["#", "#", "#", ".", ".", ".", "#"],
-//     ["#", ".", ".", ".", "#", ".", "#", "#"],
-//     ["#", ".", "#", ".", "G", ".", ".", "#"],
-//     ["#", ".", ".", ".", "B", "#", ".", "#"],
-//     ["#", "#", "G", "B", "P", "B", "G", "#"],
-//     [" ", "#", ".", ".", ".", "#", "#", "#"],
-//     [" ", "#", "#", "#", "#", "#"]
-// ];
-
-
-
 export function buildGameBoard(level) {
-    const boardMap = string2BoardMap(level);
+    const boardMap = level.trim().split('\n');
     const game = document.getElementById("game");
     const board = createGameElement('div', 'board', game);
     const pieces = {

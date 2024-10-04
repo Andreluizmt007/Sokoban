@@ -21,33 +21,20 @@ for (let i = 0; i < pieces.boxes.length; i++) {
 }
 
 window.addEventListener("keydown", function (event) {
-    // event.preventDefault();
 
     handlePieceMovement(event.code);
 });
 
-/** Tarefa #1: implementar função para localizar uma caixa à partir de um
- * uma dada coordenada.
-*/
+
 function findBoxAtPosition(position) {
-    // modificar linha(s) de código abaixo
+
     return boxes.find((box) => box.y == position.y && box.x == position.x);
 }
 
-function leveantaAPlaquinha() {
-    alert("Congratulations!");
-}
-
-/** Tarefa #2: modificar a função abaixo de forma a tratar tando a movimentação
- * do jogador quanto das caixas.
-*/
 function handlePieceMovement(keycode) {
-    // Variável destinada ao pré-cálculo da posição do jogador
     const next = player.nextPosition(keycode);
-    // (Modificar) Variável para detectar a "presença" de outra peça
     const foundBox = findBoxAtPosition(next);
 
-    // Implementar lógica caso encontre uma outra peça no caminho.
     if (foundBox) {
         const nextPosBox = foundBox.nextPosition(keycode);
         const foundBox2 = findBoxAtPosition(nextPosBox);
@@ -57,17 +44,11 @@ function handlePieceMovement(keycode) {
             foundBox.moveTo(nextPosBox);
             player.moveTo(next);
 
-            const caixasCertas = contagemDeCaixasCorretas();
-
-            if (caixasCertas == numberOfGoals) {
-                setTimeout(leveantaAPlaquinha, 300);
-            }
+            if(levelCompleted()) setTimeout(() => alert("Congratulations!"), 250);
         }
     }
-    // E caso não encontre outra peça...
+
     else {
-        // Faça as modificações que forem necessárias para manter o
-        // funcionamento do jogo.
         const playerCanMove = verifyPosition(next)
         if (playerCanMove) {
             player.moveTo(next);
@@ -81,13 +62,11 @@ function verifyPosition(position) {
     return boardMap[y][x] !== '#';
 }
 
-function contagemDeCaixasCorretas() {
+function levelCompleted() {
     let count = 0;
 
-    for (let i = 0; i < boxes.length; i++) {
-        let { y, x } = boxes[i];
-
+    for (const position of boxes) {
         if (boardMap[y][x] == 'G') count++;
     }
-    return count;
+    return count == numberOfGoals;
 }
