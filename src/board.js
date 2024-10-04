@@ -7,19 +7,19 @@ function string2BoardMap(level) {
 
 
 // export const boardMap = [
-    //     [" ", " ", "#", "#", "#", "#", "#"],
-    //     ["#", "#", "#", ".", ".", ".", "#"],
-    //     ["#", ".", ".", ".", "#", ".", "#", "#"],
-    //     ["#", ".", "#", ".", "G", ".", ".", "#"],
-    //     ["#", ".", ".", ".", "B", "#", ".", "#"],
-    //     ["#", "#", "G", "B", "P", "B", "G", "#"],
-    //     [" ", "#", ".", ".", ".", "#", "#", "#"],
-    //     [" ", "#", "#", "#", "#", "#"]
-    // ];
-    
-    
-    
-    export function buildGameBoard(level) {
+//     [" ", " ", "#", "#", "#", "#", "#"],
+//     ["#", "#", "#", ".", ".", ".", "#"],
+//     ["#", ".", ".", ".", "#", ".", "#", "#"],
+//     ["#", ".", "#", ".", "G", ".", ".", "#"],
+//     ["#", ".", ".", ".", "B", "#", ".", "#"],
+//     ["#", "#", "G", "B", "P", "B", "G", "#"],
+//     [" ", "#", ".", ".", ".", "#", "#", "#"],
+//     [" ", "#", "#", "#", "#", "#"]
+// ];
+
+
+
+export function buildGameBoard(level) {
     const boardMap = string2BoardMap(level);
     const game = document.getElementById("game");
     const board = createGameElement('div', 'board', game);
@@ -28,7 +28,7 @@ function string2BoardMap(level) {
     };
     let numberOfGoals = 0;
     const NUM_ROWS = boardMap.length;
-    
+
     for (let y = 0; y < NUM_ROWS; y++) {
         const row = createGameElement('div', 'row', board);
         const NUM_COLS = boardMap[y].length;
