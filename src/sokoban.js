@@ -24,7 +24,7 @@ function handlePieceMovement(keycode) {
             foundBox.moveTo(nextPosBox);
             player.moveTo(next);
 
-            if(levelCompleted()) setTimeout(() => alert("Congratulations!"), 250);
+            if (levelCompleted()) setTimeout(() => alert("Congratulations!"), 250);
         }
     }
     else {
@@ -43,7 +43,7 @@ function levelCompleted() {
     let count = 0;
 
     for (const position of boxes) {
-        let { y: y, x: x} = position;
+        let { y: y, x: x } = position;
 
         if (boardMap[y][x] == 'G') count++;
     }

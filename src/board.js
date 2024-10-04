@@ -6,7 +6,7 @@ export function buildGameBoard(level) {
     const game = document.getElementById("game");
     const board = createGameElement('div', 'board', game);
 
-    let numberOfGoals = 0, boxes = [], player =  null;
+    let numberOfGoals = 0, boxes = [], player = null;
 
     for (let y = 0; y < boardMap.length; y++) {
         const row = createGameElement('div', 'row', board);
